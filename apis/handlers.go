@@ -16,3 +16,8 @@ func Shorter(w http.ResponseWriter, r *http.Request) {
 	decoder.Decode(&data)
 	fmt.Fprintln(w, data)
 }
+
+func Redirect(w http.ResponseWriter, r *http.Request) {
+	token := r.URL.Path[len("/redirect/"):]
+	fmt.Fprintln(w, token)
+}

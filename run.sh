@@ -19,6 +19,8 @@ if [[ -z $port ]]
 then
   port=8080
 fi
+
+file_name=$1
 file_sign=$(checksum)
 
 
