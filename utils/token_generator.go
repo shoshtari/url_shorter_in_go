@@ -1,11 +1,8 @@
 package utils
 
 import (
-	"errors"
 	"strconv"
 )
-
-var prev = make(map[string]string)
 
 func shortLinkGenOuter() func() string {
 	start := 0
@@ -16,14 +13,4 @@ func shortLinkGenOuter() func() string {
 	}
 }
 
-var shortLinkGen = shortLinkGenOuter()
-
-func TokenGenerator(fullLink string) (err error) {
-	_, ok := prev[fullLink]
-	if ok {
-		err = errors.New("link already exists")
-		return
-	}
-	prev[fullLink] = shortLinkGen()
-	return
-}
+var ShortLinkGen = shortLinkGenOuter()
